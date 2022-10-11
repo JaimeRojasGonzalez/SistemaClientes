@@ -3,14 +3,14 @@
 <head th:replace="layaout/layaout :: head">
 <meta charset="UTF-8" />
 </head>
-<body>
+<body class="bg-black">
 
 	<header th:replace="layaout/layaout :: header"></header>
 
 	<div class="container py-4">
 
 		<div class="card bg-secondary text-white">
-			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-header text-warning" th:text="${titulo}"></div>
 			<div class="card-body">
 
 
@@ -26,27 +26,27 @@
 					method="post">
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="nombre">Nombre</label>
+						<label class="col-sm-2 col-form-label my-2" for="nombre">Nombre</label>
 						<div class="col-sm-10">
-							<input type="text" th:field="*{nombre}" class="form-control"
+							<input type="text" th:field="*{nombre}" class="form-control my-2"
 								th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="apellido">Apellido</label>
+						<label class="col-sm-2 col-form-label my-2" for="apellido">Apellido</label>
 						<div class="col-sm-10">
-							<input type="text" th:field="*{apellido}" class="form-control"
+							<input type="text" th:field="*{apellido}" class="form-control my-2"
 								th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="email">Email</label>
+						<label class="col-sm-2 col-form-label my-2" for="email">Email</label>
 						<div class="col-sm-10">
-							<input type="text" th:field="*{email}" class="form-control"
+							<input type="text" th:field="*{email}" class="form-control my-2"
 								th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
@@ -54,9 +54,9 @@
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="telefono">Teléfono</label>
+						<label class="col-sm-2 col-form-label my-2" for="telefono">Teléfono</label>
 						<div class="col-sm-10">
-							<input type="text" th:field="*{telefono}" class="form-control"
+							<input type="text" th:field="*{telefono}" class="form-control my-2"
 								th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
@@ -64,9 +64,9 @@
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="fechaNac">Fecha de Nacimiento</label>
+						<label class="col-sm-2 col-form-label my-2" for="fechaNac">Fecha de Nacimiento</label>
 						<div class="col-sm-10">
-							<input type="date" th:field="*{fechaNac}" class="form-control"
+							<input type="date" th:field="*{fechaNac}" class="form-control my-2"
 								th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('fechaNac')}" th:errors="*{fechaNac}"></small>
@@ -74,9 +74,9 @@
 					</div>
 					<!-- <input type="hidden" th:field="*{id}" />-->
 					<div class="form-group row py-2" style="text-align: center;">
-						<div style="margin: 0px auto;">
+						<div style="margin: 0px auto;" class="col-sm-3">
 							<input type="submit" value="Crear cliente"
-								class="form-control btn btn-dark btn-lg btn-block" />
+								class="form-control btn btn-warning btn-lg btn-block" />
 						</div>
 					</div>
 

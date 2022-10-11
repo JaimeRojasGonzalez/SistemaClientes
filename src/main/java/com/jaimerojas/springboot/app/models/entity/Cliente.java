@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
-//import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,17 +28,20 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@NotEmpty
+	@Column(nullable = false)
 	private String nombre;
 	
 	@NotEmpty
+	@Column(nullable = false)
 	private String apellido;
 	
 	@NotEmpty
 	@Email
+	@Column(nullable = false)
 	private String email;
 
 	@NotNull
-	@Column(name = "fecha_nac")
+	@Column(name = "fecha_nac", nullable = false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Past
@@ -47,8 +49,9 @@ public class Cliente implements Serializable {
 	
 	private Date createAt;
 
-	@NotNull
-	private Integer telefono;
+	@NotNull 
+	@Column(nullable = false)
+	private Long telefono;
 	
 	@PrePersist
 	public void prePersist() {
@@ -56,7 +59,28 @@ public class Cliente implements Serializable {
 		createAt = new Date();
 		
 	}
+
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
+	public Cliente(Long id, @NotEmpty String nombre, @NotEmpty String apellido, @NotEmpty @Email String email,
+			@NotNull @Past Date fechaNac, Date createAt, @NotNull Long telefono) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.fechaNac = fechaNac;
+		this.createAt = createAt;
+		this.telefono = telefono;
+	}
+
+
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -109,11 +133,11 @@ public class Cliente implements Serializable {
 		this.createAt = createAt;
 	}
 
-	public Integer getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 
